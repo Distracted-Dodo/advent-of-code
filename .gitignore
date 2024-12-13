@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Stuff that appeared when I compiled...
+*.pdb
+*.ilk
