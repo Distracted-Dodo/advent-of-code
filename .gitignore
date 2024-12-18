@@ -31,6 +31,8 @@
 *.out
 *.app
 
-# Stuff that appeared when I compiled...
+# More stuff...
 *.pdb
 *.ilk
+.vscode/tasks.json
+.vscode/settings.json
