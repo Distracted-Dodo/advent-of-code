@@ -27,16 +27,24 @@ bool isSafe(const int *row, int n) {
 int getLength(string row) { // a quick and dirty helper function to find the number of numbers in a row
     int i = -1, count = 0;
     while(row[++i]) if(row[i] == ' ') count++;
-    return count;
+    return count + 1; // there is one more space than number, unless we get a string with no numbers
 }
 
 int *parseLine(string row, int n) {
     // allocate a new array
-    int* 
+    int* rowArray;
+    rowArray = new int [n];
 
     // put the numbers in the spots
+    int space;
+    for(int i = 0; i < n; i++) {
+        space = row.find_first_of(' ');
+        rowArray[i] = stoi(row.substr(0, space));
+        row.erase(0, space + 1); // gets rid of the number
+    }
 
     // return the new array
+    return rowArray;
 }
 
 void p1() {
@@ -80,8 +88,12 @@ void p2() {
 
 int main() {
     // testing:
-    int a[5] = {0, 3, 4, 5, 6};
-    cout << isSafe(a, 5) << endl;
+    // int a[5] = {0, 3, 4, 5, 6};
+    // cout << isSafe(a, 5) << endl;
+
+    // string b = "123 4 1 523 1 324";
+    // cout << getLength(b) << endl;
+    // int *t = parseLine(b, 6);
 
     p1();
     // p2();
